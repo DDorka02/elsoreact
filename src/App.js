@@ -12,7 +12,7 @@ function App() {
     console.log("app",adat)
     const ujLista=[...kivalasztottLista]
     ujLista.push(adat)
-    setKivalsztottLista.push([...ujLista])
+    setKivalsztottLista([...ujLista])
     console.log(kivalasztottLista)
   }
   return (
