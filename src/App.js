@@ -1,32 +1,25 @@
 
+import { useContext } from 'react';
 import { adatLISTA } from './adatok';
 import './App.css';
-import {useState} from "react"
 import Kartyak from './components/Kartyak';
+import { KattContext } from './context/KattContext';
 
 function App() {
-  // state az egy változó a program állapotát írja le, use Stee függvénnyel tudjuk beállítani az értékékét
-  //const kivalasztLista=[]
-  const [kivalasztottLista,setKivalsztottLista]=useState([])
-  function kattkezApp(adat){
-    console.log("app",adat)
-    const ujLista=[...kivalasztottLista]
-    ujLista.push(adat)
-    setKivalsztottLista([...ujLista])
-    console.log(kivalasztottLista)
-  }
+  const {kivalasztottLista} = useContext(KattContext)
+
   return (
     <div className="App">
       <header className="App-header">
        Hurrá react
       </header>
       <article>
-        <Kartyak lista={adatLISTA} kattkezApp={kattkezApp}/>
+        <Kartyak lista={adatLISTA}/>
         
       </article>
       <aside>
         <h3>Kiválasztott könyvek</h3>
-        <Kartyak lista={kivalasztottLista} kattkezApp={kattkezApp}/>
+        <Kartyak lista={kivalasztottLista}/>
       </aside>
       <footer>Dorka</footer>
     </div>
